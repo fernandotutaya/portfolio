@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSkills();
     setupEventListeners();
     setupScrollAnimations();
+    animateSkills();
 });
 
 // Funciones principales
@@ -75,7 +76,12 @@ function setupEventListeners() {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            target.scrollIntoView({ behavior: 'smooth' });
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -86,10 +92,38 @@ function setupEventListeners() {
     });
 
     // Validación de formulario
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
         e.preventDefault();
-        // Aquí iría la lógica de envío
-        alert('Mensaje enviado con éxito!');
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
+
+        // Aquí puedes agregar la lógica para enviar el formulario
+        // Por ejemplo, usando fetch para enviar a un backend
+
+        // Simulación de envío
+        const submitBtn = document.getElementById('contactForm').querySelector('.submit-btn');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
+
+        try {
+            // Simular delay de envío
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Mostrar mensaje de éxito
+            alert('¡Mensaje enviado con éxito!');
+            document.getElementById('contactForm').reset();
+        } catch (error) {
+            alert('Error al enviar el mensaje. Por favor, intenta nuevamente.');
+        } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
@@ -107,6 +141,114 @@ function setupScrollAnimations() {
     });
 }
 
-function scrollToSection(sectionId) {
-    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+function animateSkills() {
+    const skillBars = document.querySelectorAll('.skill-item');
+    
+    const options = {
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.opacity = '1';
+            }
+        });
+    }, options);
+
+    skillBars.forEach(bar => {
+        bar.style.transform = 'translateY(20px)';
+        bar.style.opacity = '0';
+        bar.style.transition = 'all 0.6s ease-out';
+        observer.observe(bar);
+    });
 }
+
+// Inicialización de AOS (Animate On Scroll)
+AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+});
+
+// Typed.js para el efecto de escritura
+const typedText = new Typed('#typed-text', {
+    strings: [
+        'Desarrollador Full Stack',
+        'Especialista en React',
+        'Diseñador de UI/UX',
+        'Creador de Soluciones Web'
+    ],
+    typeSpeed: 50,
+    backSpeed: 30,
+    backDelay: 2000,
+    loop: true
+});
+
+// Navegación suave
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Menú móvil
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', 
+        menuToggle.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+    );
+});
+
+// Cerrar menú móvil al hacer clic en un enlace
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    });
+});
+
+// Navbar transparente/sólida según el scroll
+const navbar = document.querySelector('.navbar');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    // Cambiar estilo de navbar
+    if (currentScroll > 100) {
+        navbar.style.background = 'var(--background-color)';
+        navbar.style.boxShadow = 'var(--box-shadow)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+    }
+
+    // Ocultar/mostrar navbar
+    if (currentScroll > lastScroll && currentScroll > 500) {
+        navbar.style.transform = 'translateY(-100%)';
+    } else {
+        navbar.style.transform = 'translateY(0)';
+    }
+
+    lastScroll = currentScroll;
+});
+
+// Efecto parallax en la sección hero
+window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero');
+    const scrolled = window.pageYOffset;
+    hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+});

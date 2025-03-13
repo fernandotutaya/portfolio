@@ -3,88 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Clider Fernando Tutaya Rivera</title>
+    <title>Clider Fernando Tutaya Rivera - Full Stack Developer</title>
+    <meta name="description" content="Portfolio profesional de Clider Fernando Tutaya Rivera - Desarrollador Full Stack especializado en crear soluciones web modernas y escalables">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./src/css/styles.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">Portfolio</a>
+            <a href="#" class="logo">CFT<span class="highlight">Dev</span></a>
             <ul class="nav-links">
-                <li><a href="#home"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="#projects"><i class="fas fa-project-diagram"></i> Proyectos</a></li>
-                <li><a href="#skills"><i class="fas fa-code"></i> Habilidades</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contacto</a></li>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#contact">Contacto</a></li>
             </ul>
-            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="animate-fadeIn">Hola, soy <span class="highlight">Fernando Tutaya (ns) </span></h1>
-            <p class="animate-fadeIn">Desarrollador Web Full Stack</p>
-            <div class="cta-container">
-                <button class="cta-btn" onclick="scrollToSection('projects')">
-                    <i class="fas fa-arrow-down"></i> Ver Proyectos
-                </button>
-                <a href="#contact" class="cta-btn secondary">
-                    <i class="fas fa-paper-plane"></i> Contactar
-                </a>
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-text">
+                <h1>Clider Fernando Tutaya</h1>
+                <div class="typewriter">
+                    <span id="typed-text"></span>
+                    <span class="cursor"></span>
+                </div>
+                <p class="hero-description">Transformando ideas en experiencias digitales excepcionales</p>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:tu@email.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
+                <a href="#about" aria-label="Scroll down">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content" data-aos="fade-up">
+                <div class="about-image">
+                    <img src="./src/assets/profile.jpg" alt="Clider Fernando Tutaya" class="profile-image">
+                </div>
+                <div class="about-text">
+                    <h2>Sobre Mí</h2>
+                    <p>Soy un desarrollador Full Stack apasionado por crear soluciones web innovadoras y escalables. Con experiencia en el desarrollo de aplicaciones web modernas, me especializo en convertir ideas complejas en productos digitales elegantes y funcionales.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-code"></i>
+                            <h3>Desarrollo Full Stack</h3>
+                            <p>Experiencia en tecnologías front-end y back-end</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Diseño Responsivo</h3>
+                            <p>Interfaces adaptables a todos los dispositivos</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-rocket"></i>
+                            <h3>Optimización</h3>
+                            <p>Aplicaciones rápidas y eficientes</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="projects">
-        <h2><i class="fas fa-folder-open"></i> Mis Proyectos</h2>
-        <div class="projects-grid"></div>
+        <div class="container">
+            <h2 data-aos="fade-up">Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="./src/assets/project1.jpg" alt="Proyecto 1">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" target="_blank" rel="noopener" aria-label="Ver demo"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" target="_blank" rel="noopener" aria-label="Ver código"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Nombre del Proyecto</h3>
+                        <p>Descripción detallada del proyecto y sus características principales. Tecnologías utilizadas y resultados obtenidos.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Más proyectos similares aquí -->
+            </div>
+        </div>
     </section>
 
     <section id="skills" class="skills">
-        <h2><i class="fas fa-tools"></i> Habilidades</h2>
-        <div class="skills-grid"></div>
+        <div class="container">
+            <h2 data-aos="fade-up">Habilidades Técnicas</h2>
+            <div class="skills-container">
+                <div class="skills-category" data-aos="fade-up">
+                    <h3>Frontend</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category" data-aos="fade-up">
+                    <h3>Backend</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>Express</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2><i class="fas fa-envelope-open-text"></i> Contacto</h2>
-        <form id="contactForm" class="contact-form">
-            <div class="form-group">
-                <input type="text" id="name" placeholder="Nombre" required>
-                <i class="fas fa-user icon"></i>
+        <div class="container">
+            <h2 data-aos="fade-up">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-up">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:tu@email.com">tu@email.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">Perfil LinkedIn</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub</h3>
+                        <p><a href="https://github.com/yourusername" target="_blank" rel="noopener">Perfil GitHub</a></p>
+                    </div>
+                </div>
+                <form id="contactForm" class="contact-form" data-aos="fade-up">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Nombre</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">Mensaje</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Enviar Mensaje</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="email" id="email" placeholder="Email" required>
-                <i class="fas fa-envelope icon"></i>
-            </div>
-            <div class="form-group">
-                <textarea id="message" placeholder="Mensaje" required></textarea>
-                <i class="fas fa-comment-dots icon"></i>
-            </div>
-            <button type="submit" class="cta-btn">
-                <i class="fas fa-paper-plane"></i> Enviar Mensaje
-            </button>
-        </form>
-        <div class="social-links">
-            <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
         </div>
     </section>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 [Tu Nombre]. Todos los derechos reservados.</p>
-            <a href="#home" class="back-to-top">
-                <i class="fas fa-arrow-up"></i>
-            </a>
+            <div class="footer-content">
+                <p>&copy; 2025 Clider Fernando Tutaya Rivera. Todos los derechos reservados.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:tu@email.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="./src/js/script.js"></script>
-    <script src="./src/js/main.js"></script>
 </body>
 </html>
