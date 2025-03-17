@@ -1,12 +1,12 @@
 // Datos dinámicos
 const projectsData = [
     {
-        title: 'E-commerce Platform',
-        description: 'Plataforma de comercio electrónico full stack',
-        image: './src/assets/project1.jpg',
-        tech: ['fab fa-react', 'fab fa-node', 'fas fa-database'],
-        link: 'https://ecommerce-demo.example.com',
-        githubLink: 'https://github.com/Nightmarespirits/ecommerce-platform'
+        title: 'Handmouse',
+        description: 'Desarrollada en Python, esta app permite usar la cámara para identificar gestos y convertirlos en comandos, redefiniendo la interacción entre el usuario y la pantalla.',
+        image: './src/assets/handmouse_python_visual_computing_project.jpg',
+        tech: ['fab fa-python'],
+        link: 'https://demo.handmouse.com',
+        githubLink: 'https://github.com/fernandotutaya/handmouse'
     },
     {
         title: 'Sistema de Gestion de Procesos Internos',
